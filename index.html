@@ -10,8 +10,9 @@
 </head>
 <body>
     <header>
-        <h1>Omnateeta V U - Student Information Portal</h1>
+        <h3> Student Information Portal</h3>
     </header>
+
     <div class="container">
         <h2 class="title">Student Information Portal</h2>
         <form id="student-form">
@@ -22,6 +23,7 @@
             <input type="number" id="attendance" placeholder="Attendance (%)" required>
             <button type="submit">Add Student</button>
         </form>
+
         <table>
             <thead>
                 <tr>
@@ -37,6 +39,8 @@
             </tbody>
         </table>
     </div>
+    <script src="script.js"></script>
+
     <footer>
         <p>&copy; 2025 Omnateeta V U. All rights reserved.</p>
         <div class="social-icons">
@@ -45,6 +49,8 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+    
+
     <script>
         $(document).ready(function() {
             $("#student-form").submit(function(event) {
@@ -56,12 +62,12 @@
                 let attendance = $("#attendance").val();
                 
                 let newRow = `<tr>
-                    <td>${name}</td>
-                    <td>${studentClass}</td>
-                    <td>${dob}</td>
-                    <td>${marks}</td>
-                    <td>${attendance}%</td>
-                    <td><button class='delete-btn'>Delete</button></td>
+                    <td data-label="Name">${name}</td>
+                    <td data-label="Class">${studentClass}</td>
+                    <td data-label="Date of Birth">${dob}</td>
+                    <td data-label="Marks">${marks}</td>
+                    <td data-label="Attendance">${attendance}%</td>
+                    <td data-label="Action"><button class='delete-btn'>Delete</button></td>
                 </tr>`;
                 
                 $("#student-list").append(newRow);
@@ -73,5 +79,6 @@
             });
         });
     </script>
+
 </body>
 </html>
